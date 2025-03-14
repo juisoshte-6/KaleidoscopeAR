@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kaleidoscope with Face & Hands</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: black;
+        }
+
+        #video {
+            display: none;
+        }
+
+        #outputCanvas {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .controls {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            color: white;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        input[type="range"] {
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <video id="video" autoplay playsinline></video>
+    <canvas id="outputCanvas"></canvas>
+
+    <div class="controls">
+        <label for="zoomSlider">Zoom:</label>
+        <input type="range" id="zoomSlider" min="0.5" max="2" step="0.01" value="1">
+        
+        <label for="speedSlider">Speed:</label>
+        <input type="range" id="speedSlider" min="10" max="100" step="1" value="30">
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
